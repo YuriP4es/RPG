@@ -58,9 +58,9 @@ public class Personagem {
 	
 	// metodo da ação atacar
 	public void atacar(Personagem alvo) {
-		int dano = Math.max(0, this.ataque - alvo.defesa); //ataque do personagem menos a defesa do inimigo
+		int dano = Math.max( this.ataque , this.ataque - alvo.defesa); //ataque do personagem menos a defesa do inimigo
 		alvo.setVida(alvo.getVida() - dano);
-		System.out.println(this.nome + "ataca" + alvo.getNome() + " e causa " + dano + " de dano.");
+		System.out.println(this.nome + " ataca " + alvo.getNome() + " e causa " + dano + " de dano.");
 		if (alvo.getVida() <= 0) {
 			System.out.println(alvo.getNome() + " foi Derrotado");
 			}
