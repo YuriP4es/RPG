@@ -26,7 +26,8 @@ public class RPG {
 		// Para outras fases colocar condicionais aqui acima (porém preciso verificar do
 		// porque dela não está funcionando.)
 		if (resposta.equalsIgnoreCase("sim")) {
-			Fase4(); // Aqui chama a fase 4
+			Fase4.IntruducaoFase(); // Aqui chama a fase 4
+			Fase4.iniciarFase(heroi, scanner); 
 		} else {
 			System.out.println("Ok! Volte quando estiver pronto.");
 			System.exit(0);
