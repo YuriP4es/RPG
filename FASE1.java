@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 public class Fase1RPG {
 	
-	//INIMIGO DA FASE 1
+	//INIMIGO DA FASE 1 (METODO CONSTRUTOR)
 	public static Personagem criarInimigoFase1RPG() {
-		return new Personagem(" Big Trash ", 200, 20, 20, 0, 40);  
+		return new Personagem(" Big Trash ", 200, 20, 10, 0, 40);  
 		}
 
 //MENSAGEM DE INTRODUÇÃO DA FASE 
