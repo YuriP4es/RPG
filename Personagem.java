@@ -2,15 +2,15 @@ package pacote;
 
 public class Personagem {
 	private String nome;
-	private int vida;
-	private int ataque;
-	private int defesa;
-	private int magia;
-	private int inteligencia;
+	private double vida;
+	private double ataque;
+	private double defesa;
+	private double magia;
+	private double inteligencia;
 	
 	
 	// metodo construtor da classe personagem
-	public Personagem(String nome, int vida, int ataque, int defesa, int magia, int inteligencia) {
+	public Personagem(String nome, double vida, double ataque, double defesa, double magia, double inteligencia) {
 		this.nome = nome;
 		this.vida = vida;
 		this.ataque = ataque;
@@ -22,57 +22,92 @@ public class Personagem {
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public int getVida() {
+
+	public double getVida() {
 		return vida;
 	}
-	public void setVida(int vida) {
-		this.vida = Math.max(0, vida); //o math.vida garante que a vida não seja negativa
+
+	public void setVida(double vida) {
+		this.vida = vida;
 	}
-	public int getAtaque() {
+
+	public double getAtaque() {
 		return ataque;
 	}
-	public void setAtaque(int ataque) {
+
+	public void setAtaque(double ataque) {
 		this.ataque = ataque;
 	}
-	public int getDefesa() {
+
+	public double getDefesa() {
 		return defesa;
 	}
-	public void setDefesa(int defesa) {
+
+	public void setDefesa(double defesa) {
 		this.defesa = defesa;
 	}
-	public int getMagia() {
+
+	public double getMagia() {
 		return magia;
 	}
-	public void setMagia(int magia) {
-		this.magia = Math.max(0 , magia); //mesma coisa do vida
+
+	public void setMagia(double magia) {
+		this.magia = magia;
 	}
-	public int getInteligencia() {
+
+	public double getInteligencia() {
 		return inteligencia;
 	}
-	public void setInteligencia(int inteligencia) {
+
+	public void setInteligencia(double inteligencia) {
 		this.inteligencia = inteligencia;
 	}
+	//coloquei tudo em double tambem
 	
-	// metodo da ação atacar
+	// metodo da ação atacar com condição para nome, dependendo do personagem tem maior dano de ataque
 	public void atacar(Personagem alvo) {
-		int dano = Math.max( this.ataque , this.ataque - alvo.defesa); //ataque do personagem menos a defesa do inimigo
-		alvo.setVida(alvo.getVida() - dano);
-		System.out.println(this.nome + " ataca " + alvo.getNome() + " e causa " + dano + " de dano.");
-		if (alvo.getVida() <= 0) {
-			System.out.println(alvo.getNome() + " foi Derrotado");
-			}
+		if (this.nome.equals("Bruxinha Rabuda")) {					
+			double dano = Math.max( this.ataque , this.ataque - alvo.defesa); //ataque do personagem menos a defesa do inimigo
+			alvo.setVida(alvo.getVida() - dano);
+			System.out.println(this.nome + " ataca " + alvo.getNome() + " e causa " + dano + " de dano.");
+			if (alvo.getVida() <= 0) {
+				System.out.println(alvo.getNome() + " foi Derrotado");
+				}
+			}else if (this.nome.equals("Cavaleiro Otário")) {					
+				double dano = Math.max( this.ataque * 2.5, this.ataque - alvo.defesa); //ele tem o maior dano de ataque
+				alvo.setVida(alvo.getVida() - dano);
+				System.out.println(this.nome + " ataca com a espada" + alvo.getNome() + "e causa " + dano + " de dano.");
+				if (alvo.getVida() <= 0) {
+					System.out.println(alvo.getNome() + " foi Derrotado");
+					}
+			}else if (this.nome.equals("Roberto Hood")) {					
+				double dano = Math.max( this.ataque * 1.75, this.ataque - alvo.defesa); 
+				alvo.setVida(alvo.getVida() - dano);
+				System.out.println(this.nome + " lança uma sequência de flechas em" + alvo.getNome() + "e causa " + dano + " de dano.");
+				if (alvo.getVida() <= 0) {
+					System.out.println(alvo.getNome() + " foi Derrotado");
+					}
+				}else {
+					double dano = Math.max( this.ataque , this.ataque - alvo.defesa); //ataque do personagem menos a defesa do inimigo
+					alvo.setVida(alvo.getVida() - dano);
+					System.out.println(this.nome + " ataca " + alvo.getNome() + " e causa " + dano + " de dano.");
+					if (alvo.getVida() <= 0) {
+						System.out.println(alvo.getNome() + " foi Derrotado");
+					}
+				}
 		}
 		
 		
-	
-	//metodo da ação usar magia, cada personagem vai ter seu tipo de natureza de magia, como se fosse uma sobrescrita de dados
+
+		//metodo da ação usar magia, cada personagem vai ter seu tipo de natureza de magia, como se fosse uma sobrescrita de dados
 		public void usarMagia(Personagem alvo , String tipoMagia) {
 			if (this.magia > 0) {
 				if (this.nome.equals("Bruxinha Rabuda") && tipoMagia.equalsIgnoreCase("fogo")) { // this.nome.equals quer dizer que o nome do personagem tem que ser igual pra usar natureza fogo 
-					int danoMagico = this.getMagia() * 4;
+					double danoMagico = this.getMagia() * 4;
 					alvo.setVida(alvo.getVida() - danoMagico);
 					System.out.println(this.nome + " lança uma bola de fogo em " + alvo.getNome() + " e causa " + danoMagico + " de dano!");
 					this.setMagia(this.magia - 5); // define o custo da magia 
@@ -80,7 +115,7 @@ public class Personagem {
 						System.out.println(alvo.getNome() + " foi derrotado!");
 					}
 				} else if (this.nome.equals("Cavaleiro Otário") && tipoMagia.equalsIgnoreCase("agua")) {
-					int danoMagico = this.getMagia() * 2;
+					double danoMagico = this.getMagia() * 2;
 					alvo.setVida(alvo.getVida() - danoMagico);
 					System.out.println(this.nome + " invoca uma tsunami para " + alvo.getNome() + " e causa " + danoMagico + " de dano!");
 					this.setMagia(this.magia - 3); // define o custo da magia 
@@ -88,7 +123,7 @@ public class Personagem {
 						System.out.println(alvo.getNome() + " foi derrotado!");
 					}
 				} else if (this.nome.equals("Roberto Hood") && tipoMagia.equalsIgnoreCase("terra")) {
-					int danoMagico = this.getMagia() * 3;
+					double danoMagico = this.getMagia() * 3;
 					alvo.setVida(alvo.getVida() - danoMagico);
 					System.out.println(this.nome + " ergue espinhos da terra contra " + alvo.getNome() + " e causa " + danoMagico + " de dano!");
 					this.setMagia(this.magia - 4); // define o custo da magia 
@@ -104,8 +139,4 @@ public class Personagem {
 			}
 			 
 	}
-	
-	
-	
-
 }
