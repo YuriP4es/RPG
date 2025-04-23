@@ -146,7 +146,7 @@ public class RPG {
 			System.out.println("2. Ataque especial");
 
 			int escolha = scanner.nextInt();
-			int dano = 0;
+			double dano = 0;
 
 			switch (escolha) {
 			case 1:
