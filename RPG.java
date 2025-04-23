@@ -12,26 +12,29 @@ public class RPG {
 	public static Personagem[] inimigos = new Personagem[3];
 	public static int inimigoAtual = 0;
 
-	public static void main(String[] args) {
-		escolherHeroi();
-
-		// INICIA A PRIMERA FASE DO JOGO
-		Fase1RPG.iniciarFase(heroi, scanner);
-
-		// FINALIZAÇÃO DO JOGO
-		System.out.println("\n🏆 Parabéns! Você venceu o vilão da fase 1 e ajudou a limpar São Paulo!");
-		System.out.println("Preparado para a próxima fase? (Digite 'sim' para continuar)");
-		String resposta = scanner.nextLine();
-
-		// Para outras fases colocar condicionais aqui acima (porém preciso verificar do
-		// porque dela não está funcionando.)
-		if (resposta.equalsIgnoreCase("sim")) {
-			Fase4.IntruducaoFase(); // Aqui chama a fase 4
-			Fase4.iniciarFase(heroi, scanner); 
-		} else {
-			System.out.println("Ok! Volte quando estiver pronto.");
-			System.exit(0);
-		}
+    public static void main(String[] args) {
+    	escolherHeroi();
+    	System.out.println("-------------------------------------------------------------------------------------------------");
+    	//INICIA A PRIMERA FASE DO JOGO
+    	Fases.iniciarFase(heroi, scanner);
+    	System.out.println("-------------------------------------------------------------------------------------------------");
+    	//FINALIZAÇÃO DO JOGO
+    	System.out.println("\n🏆 Parabéns! Você venceu o vilão da fase 1 e ajudou a limpar São Paulo!");
+    	System.out.println("Preparado para a próxima fase? (Digite 'sim' para continuar)");
+	String resposta = scanner.nextLine();
+	// Para outras fases colocar condicionais aqui acima (porém preciso verificar do
+	// porque dela não está funcionando.)
+	if (resposta.equalsIgnoreCase("sim")) {
+		Fase4.IntruducaoFase(); // Aqui chama a fase 4
+		Fase4.iniciarFase(heroi, scanner);
+	} else {
+		System.out.println("Ok! Volte quando estiver pronto.");
+		System.exit(0);
+	}
+	System.out.println("-------------------------------------------------------------------------------------------------");
+	System.out.println("\n🏆 Parabéns! Você venceu o vilão da fase 4 e ajudou mais uma vez a limpar São Paulo!");
+    	System.out.println("Preparado para a próxima fase? (Digite 'sim' para continuar)");
+    	// colocar o scanner de resposta e iniciar a proxima fase dentro de um if igual a ana fez
 	}
 
 	// metodo para escolher o personagem
