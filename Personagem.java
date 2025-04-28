@@ -1,146 +1,174 @@
 package pacote;
 
 public class Personagem {
-   private String nome;
-   private double vida;
-   private double ataque;
-   private double defesa;
-   private double magia;
-   private double inteligencia;
+	private String nome;
+	private double vida;
+	private double ataque;
+	private double defesa;
+	private double magia;
+	private double inteligencia;
+	
+	// Atributos para armazenar os valores iniciais
+	private double vidaInicial;
+	private double magiaInicial;
+	
+	// metodo construtor da classe personagem
+	public Personagem(String nome, double vida, double ataque, double defesa, double magia, double inteligencia) {
+		this.nome = nome;
+		this.vida = vida;
+		this.ataque = ataque;
+		this.defesa = defesa;
+		this.magia = magia;
+		this.inteligencia = inteligencia;
+		
+		// Salva os valores iniciais
+		this.vidaInicial = vida;
+		this.magiaInicial = magia;
+		
 
-   public Personagem(String nome, double vida, double ataque, double defesa, double magia, double inteligencia) {
-      this.nome = nome;
-      this.vida = vida;
-      this.ataque = ataque;
-      this.defesa = defesa;
-      this.magia = magia;
-      this.inteligencia = inteligencia;
-   }
+	}
+	// encapsulamento de todos os atributos
+	public String getNome() {
+		return nome;
+	}
 
-   public String getNome() {
-      return this.nome;
-   }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-   public void setNome(String nome) {
-      this.nome = nome;
-   }
+	public double getVida() {
+		return vida;
+	}
 
-   public double getVida() {
-      return this.vida;
-   }
+	public void setVida(double vida) {
+		this.vida = vida;
+	}
 
-   public void setVida(double vida) {
-      this.vida = vida;
-   }
+	public double getAtaque() {
+		return ataque;
+	}
 
-   public double getAtaque() {
-      return this.ataque;
-   }
+	public void setAtaque(double ataque) {
+		this.ataque = ataque;
+	}
 
-   public void setAtaque(double ataque) {
-      this.ataque = ataque;
-   }
+	public double getDefesa() {
+		return defesa;
+	}
 
-   public double getDefesa() {
-      return this.defesa;
-   }
+	public void setDefesa(double defesa) {
+		this.defesa = defesa;
+	}
 
-   public void setDefesa(double defesa) {
-      this.defesa = defesa;
-   }
+	public double getMagia() {
+		return magia;
+	}
 
-   public double getMagia() {
-      return this.magia;
-   }
+	public void setMagia(double magia) {
+		this.magia = magia;
+	}
 
-   public void setMagia(double magia) {
-      this.magia = magia;
-   }
+	public double getInteligencia() {
+		return inteligencia;
+	}
 
-   public double getInteligencia() {
-      return this.inteligencia;
-   }
+	public void setInteligencia(double inteligencia) {
+		this.inteligencia = inteligencia;
+	}
 
-   public void setInteligencia(double inteligencia) {
-      this.inteligencia = inteligencia;
-   }
+	public double getVidaInicial() {
+		return vidaInicial;
+	}
+	public void setVidaInicial(double vidaInicial) {
+		this.vidaInicial = vidaInicial;
+	}
+	public double getMagiaInicial() {
+		return magiaInicial;
+	}
+	public void setMagiaInicial(double magiaInicial) {
+		this.magiaInicial = magiaInicial;
+	}
+	// metodo da ação atacar com condição para nome, dependendo do personagem tem maior dano de ataque
+	public void atacar(Personagem alvo) {
+		if (this.nome.equals("Bruxinha Rabuda")) {					
+			double dano = Math.max( this.ataque , this.ataque - alvo.defesa); //ataque do personagem menos a defesa do inimigo
+			alvo.setVida(alvo.getVida() - dano);
+			System.out.println(this.nome + " ataca " + alvo.getNome() + " e causa " + dano + " de dano.");
+			if (alvo.getVida() <= 0) {
+				System.out.println(alvo.getNome() + " foi Derrotado");
+				}
+			}else if (this.nome.equals("Cavaleiro Otário")) {					
+				double dano = Math.max( this.ataque * 2.5, this.ataque - alvo.defesa); //ataque do personagem menos a defesa do inimigo
+				alvo.setVida(alvo.getVida() - dano);
+				System.out.println(this.nome + " ataca com a espada" + alvo.getNome() + "e causa " + dano + " de dano.");
+				if (alvo.getVida() <= 0) {
+					System.out.println(alvo.getNome() + " foi Derrotado");
+					}
+			}else if (this.nome.equals("Roberto Hood")) {					
+				double dano = Math.max( this.ataque * 1.75, this.ataque - alvo.defesa); //ataque do personagem menos a defesa do inimigo
+				alvo.setVida(alvo.getVida() - dano);
+				System.out.println(this.nome + " lança uma sequência de flechas em" + alvo.getNome() + "e causa " + dano + " de dano.");
+				if (alvo.getVida() <= 0) {
+					System.out.println(alvo.getNome() + " foi Derrotado");
+					}
+				}else {
+					double dano = Math.max( this.ataque , this.ataque - alvo.defesa); //ataque do personagem menos a defesa do inimigo
+					alvo.setVida(alvo.getVida() - dano);
+					System.out.println(this.nome + " ataca " + alvo.getNome() + " e causa " + dano + " de dano.");
+					if (alvo.getVida() <= 0) {
+						System.out.println(alvo.getNome() + " foi Derrotado");
+					}
+				}
+		}
+		
+		
 
-   public void atacar(Personagem alvo) {
-      String var10001;
-      double dano;
-      if (this.nome.equals("Bruxinha Rabuda")) {
-         dano = Math.max(this.ataque, this.ataque - alvo.defesa);
-         alvo.setVida(alvo.getVida() - dano);
-         var10001 = this.nome;
-         System.out.println(var10001 + " ataca " + alvo.getNome() + " e causa " + dano + " de dano.");
-         if (alvo.getVida() <= 0.0D) {
-            System.out.println(alvo.getNome() + " foi Derrotado");
-         }
-      } else if (this.nome.equals("Cavaleiro Otário")) {
-         dano = Math.max(this.ataque * 2.5D, this.ataque - alvo.defesa);
-         alvo.setVida(alvo.getVida() - dano);
-         var10001 = this.nome;
-         System.out.println(var10001 + " ataca com a espada " + alvo.getNome() + " e causa " + dano + " de dano.");
-         if (alvo.getVida() <= 0.0D) {
-            System.out.println(alvo.getNome() + " foi Derrotado");
-         }
-      } else if (this.nome.equals("Roberto Hood")) {
-         dano = Math.max(this.ataque * 1.75D, this.ataque - alvo.defesa);
-         alvo.setVida(alvo.getVida() - dano);
-         var10001 = this.nome;
-         System.out.println(var10001 + " lança uma sequência de flechas em" + alvo.getNome() + "e causa " + dano + " de dano.");
-         if (alvo.getVida() <= 0.0D) {
-            System.out.println(alvo.getNome() + " foi Derrotado");
-         }
-      } else {
-         dano = Math.max(this.ataque, this.ataque - alvo.defesa);
-         alvo.setVida(alvo.getVida() - dano);
-         var10001 = this.nome;
-         System.out.println(var10001 + " ataca " + alvo.getNome() + " e causa " + dano + " de dano.");
-         if (alvo.getVida() <= 0.0D) {
-            System.out.println(alvo.getNome() + " foi Derrotado");
-         }
-      }
+		//metodo da ação usar magia, cada personagem vai ter seu tipo de natureza de magia, como se fosse uma sobrescrita de dados
+		public void usarMagia(Personagem alvo , String tipoMagia) {
+			if (this.magia > 0) {
+				if (this.nome.equals("Bruxinha Rabuda") && tipoMagia.equalsIgnoreCase("fogo")) { // this.nome.equals quer dizer que o nome do personagem tem que ser igual pra usar natureza fogo 
+					double danoMagico = this.getMagia() * 4;
+					alvo.setVida(alvo.getVida() - danoMagico);
+					System.out.println(this.nome + " lança uma bola de fogo em " + alvo.getNome() + " e causa " + danoMagico + " de dano!");
+					this.setMagia(this.magia - 5); // define o custo da magia 
+					if (alvo.getVida() <= 0) {
+						System.out.println(alvo.getNome() + " foi derrotado!");
+					}
+				} else if (this.nome.equals("Cavaleiro Otário") && tipoMagia.equalsIgnoreCase("agua")) {
+					double danoMagico = this.getMagia() * 2;
+					alvo.setVida(alvo.getVida() - danoMagico);
+					System.out.println(this.nome + " invoca uma tsunami para " + alvo.getNome() + " e causa " + danoMagico + " de dano!");
+					this.setMagia(this.magia - 3); // define o custo da magia 
+					if (alvo.getVida() <= 0) {
+						System.out.println(alvo.getNome() + " foi derrotado!");
+					}
+				} else if (this.nome.equals("Roberto Hood") && tipoMagia.equalsIgnoreCase("terra")) {
+					double danoMagico = this.getMagia() * 3;
+					alvo.setVida(alvo.getVida() - danoMagico);
+					System.out.println(this.nome + " ergue espinhos da terra contra " + alvo.getNome() + " e causa " + danoMagico + " de dano!");
+					this.setMagia(this.magia - 4); // define o custo da magia 
+					if (alvo.getVida() <= 0) {
+						System.out.println(alvo.getNome() + " foi derrotado!");
+					}
+				} else {
+					System.out.println("Você não pode usar essa magia ou naõ tem magia o suficiente.");
+				}
+				
+			} else {
+				System.out.println(this.nome + " não possui magia suficiente");
+			}
+			
+			
+			
+			 
+	}
 
-   }
+		public void restaurarAtributos() {
+			this.vida = this.vidaInicial;
+			this.magia = this.magiaInicial;
+			System.out.println(this.nome + " teve seus atributos restaurados para os valores iniciais.");
+			System.out.println("Vida: " + this.vida + ", Magia: " + this.magia);
+		}
 
-   public void usarMagia(Personagem alvo, String tipoMagia) {
-      if (this.magia > 0.0D) {
-         String var10001;
-         double danoMagico;
-         if (this.nome.equals("Bruxinha Rabuda") && tipoMagia.equalsIgnoreCase("fogo")) {
-            danoMagico = this.getMagia() * 4.0D;
-            alvo.setVida(alvo.getVida() - danoMagico);
-            var10001 = this.nome;
-            System.out.println(var10001 + " lança uma bola de fogo em " + alvo.getNome() + " e causa " + danoMagico + " de dano!");
-            this.setMagia(this.magia - 5.0D);
-            if (alvo.getVida() <= 0.0D) {
-               System.out.println(alvo.getNome() + " foi derrotado!");
-            }
-         } else if (this.nome.equals("Cavaleiro Otário") && tipoMagia.equalsIgnoreCase("agua")) {
-            danoMagico = this.getMagia() * 2.0D;
-            alvo.setVida(alvo.getVida() - danoMagico);
-            var10001 = this.nome;
-            System.out.println(var10001 + " invoca uma tsunami para " + alvo.getNome() + " e causa " + danoMagico + " de dano!");
-            this.setMagia(this.magia - 3.0D);
-            if (alvo.getVida() <= 0.0D) {
-               System.out.println(alvo.getNome() + " foi derrotado!");
-            }
-         } else if (this.nome.equals("Roberto Hood") && tipoMagia.equalsIgnoreCase("terra")) {
-            danoMagico = this.getMagia() * 3.0D;
-            alvo.setVida(alvo.getVida() - danoMagico);
-            var10001 = this.nome;
-            System.out.println(var10001 + " ergue espinhos da terra contra " + alvo.getNome() + " e causa " + danoMagico + " de dano!");
-            this.setMagia(this.magia - 4.0D);
-            if (alvo.getVida() <= 0.0D) {
-               System.out.println(alvo.getNome() + " foi derrotado!");
-            }
-         } else {
-            System.out.println("Você não pode usar essa magia ou naõ tem magia o suficiente.");
-         }
-      } else {
-         System.out.println(this.nome + " não possui magia suficiente");
-      }
-
-   }
 }
+

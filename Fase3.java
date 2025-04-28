@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Fase3 {
    public static Personagem criarInimigoFase3() {
-      return new Personagem("Dra. LaPollute", 200.0D, 20.0D, 12.0D, 5.0D, 115.0D);
+      return new Personagem("Dra. LaPollute", 150, 20, 12, 5, 115);
    }
 
    public static void IntroducaoFase() {
@@ -25,7 +25,7 @@ public class Fase3 {
       System.out.println("\ud83d\udc7e " + inimigo.getNome() + ": É o que veremos!");
       System.out.println("\ud83e\uddb8 " + heroi.getNome() + "Vai ser o seu fim!");
       System.out.println("\n\ud83d\udd14 Combate iniciado!");
+      heroi.restaurarAtributos();
       RPG.combate(heroi, inimigo, scanner);
    }
 }
- 

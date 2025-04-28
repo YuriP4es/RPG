@@ -4,11 +4,12 @@ import java.util.Scanner;
 
 public class Fase2{
 	public static Personagem criarInimigoFase2() {
-	    return new Personagem("Barão Esgoto", 200.0D, 20.0D, 11.0D, 3.0D, 60.0D);
+	    return new Personagem("Barão Esgoto", 125, 20, 11, 3, 60);
 	}
 
 	public static void introducaoFase() { //Introdução da fase 2, seguindo o padrão das outras fases
-	    System.out.println("-----------------------------------------");
+		
+		System.out.println("-----------------------------------------");
 	    System.out.println("\n\ud83c\udf0a FASE 2: O Terror Borbulhante do Barão Esgoto! \ud83c\udf0a");
 	    System.out.println("As águas fétidas do Rio Tietê ferveram com uma nova ameaça!");
 	    System.out.println("Direto das profundezas poluídas, surge o Barão Esgoto, um lorde da sujeira!");
@@ -26,6 +27,7 @@ public class Fase2{
 	      System.out.println("\ud83d\udc7e " + inimigo.getNome() + ": Insolente! Vou te afogar no meu caldo de dejetos industriais!");
 	      System.out.println("\ud83e\uddb8 " + heroi.getNome() + ": Vou te mandar pelo ralo, Barão! Prepare-se para ser filtrado!");
 	      System.out.println("\n\ud83d\udd14 Combate iniciado!");
+	      heroi.restaurarAtributos();
 	      RPG.combate(heroi, inimigo, scanner); // Chama o método de combate padrão
    }
 }
