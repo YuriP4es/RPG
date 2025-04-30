@@ -127,7 +127,7 @@ public class Personagem {
 		public void usarMagia(Personagem alvo , String tipoMagia) {
 			if (this.magia > 0) {
 				if (this.nome.equals("Bruxinha Rabuda") && tipoMagia.equalsIgnoreCase("fogo")) { // this.nome.equals quer dizer que o nome do personagem tem que ser igual pra usar natureza fogo 
-					double danoMagico = this.getMagia() * 4;
+					double danoMagico = this.getMagia() * 1;
 					alvo.setVida(alvo.getVida() - danoMagico);
 					System.out.println(this.nome + " lança uma bola de fogo em " + alvo.getNome() + " e causa " + danoMagico + " de dano!");
 					this.setMagia(this.magia - 5); // define o custo da magia 
