@@ -7,7 +7,7 @@ public class Fase1 {
 	
 	//INIMIGO DA FASE 1
 	public static Personagem criarInimigoFase1RPG() {
-		return new Personagem(" Big Trash ", 100, 20, 20, 10, 40);  
+		return new Personagem(" Big Trash ", 115, 20, 20, 10, 40);  
 		}
 
 //MENSAGEM DE INTRODUÇÃO DA FASE 
