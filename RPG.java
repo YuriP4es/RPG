@@ -14,6 +14,14 @@ public class RPG {
 	
     
     public static void main(String[] args) {
+    	mostrarMissao();  
+    	
+    		//pergunta se o jogador esta pronto para iniciar o jogo
+    	System.out.println("\n🚀 Você está pronto para iniciar sua jornada contra a destruição do meio ambiente? (Digite 'sim' para iniciar");
+    	String respostaInicial = scanner.nextLine().trim().toLowerCase();
+    	if(respostaInicial.equals("sim")) {
+    	
+    	//inicia as fases, mostra o vencedor e pergunta se o jogador quer passar para a proxima fase do jogo 
         escolherHeroi();
         System.out.println("-------------------------------------------------------------------------------------------------");
         Fase1.iniciarFase(heroi, scanner);
@@ -59,10 +67,27 @@ public class RPG {
         System.out.println("-------------------------------------------------------------------------------------------------");
         System.out.println("\n\ud83c\udfc6 Parabéns! Você venceu o vilão da fase 4 e finalmente livrou São Paulo da Poluição, Obrigado por Jogar!! ");
     	
-	}
-    
+	} else {
+        System.out.println("\n😅 Tudo bem! Quando se sentir preparado, volte para salvar São Paulo!");
+        System.exit(0); }
+    	}
+    	
+    //introdução na historia do jogo 
+	public static void mostrarMissao() {
+		System.out.println("\n🌍 Missão: Salvar São Paulo!");
+        System.out.println("O ano é 2025. A cidade de São Paulo enfrenta uma ameaça invisível e silenciosa: o lixo.");
+        System.out.println("Montanhas de resíduos tóxicos tomam ruas e rios, espalhando doenças e destruição.");
+        System.out.println("No meio desse caos, surge um herói improvável... Você!");
+        System.out.println("\n👊 Sua missão:");
+        System.out.println("- Enfrentar monstros criados pela poluição urbana.");
+        System.out.println("- Utilizar suas habilidades de combate e magia para derrotar os vilões.");
+        System.out.println("- Limpar as áreas críticas e restaurar o equilíbrio ambiental.");
+        System.out.println("- Inspirar a população a lutar pela preservação da cidade.");
+        System.out.println("\n♻️ Cada batalha é uma chance de salvar vidas e proteger o futuro do planeta!");
+        System.out.println("\n⚡ Prepare-se para escolher seu herói e iniciar a jornada!");
 		
-	
+	}
+
 	// metodo para escolher o personagem
     public static void escolherHeroi() {
     	System.out.println("-------------------------------------------------------------------------------------------------");
