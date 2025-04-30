@@ -98,14 +98,14 @@ public class Personagem {
 				System.out.println(alvo.getNome() + " foi Derrotado");
 				}
 			}else if (this.nome.equals("Cavaleiro Otário")) {					
-				double dano = Math.max( this.ataque * 2.5, this.ataque - alvo.defesa); //ataque do personagem menos a defesa do inimigo
+				double dano = Math.max( this.ataque , this.ataque - alvo.defesa); //ataque do personagem menos a defesa do inimigo
 				alvo.setVida(alvo.getVida() - dano);
 				System.out.println(this.nome + " ataca com a espada" + alvo.getNome() + "e causa " + dano + " de dano.");
 				if (alvo.getVida() <= 0) {
 					System.out.println(alvo.getNome() + " foi Derrotado");
 					}
 			}else if (this.nome.equals("Roberto Hood")) {					
-				double dano = Math.max( this.ataque * 1.75, this.ataque - alvo.defesa); //ataque do personagem menos a defesa do inimigo
+				double dano = Math.max( this.ataque , this.ataque - alvo.defesa); //ataque do personagem menos a defesa do inimigo
 				alvo.setVida(alvo.getVida() - dano);
 				System.out.println(this.nome + " lança uma sequência de flechas em" + alvo.getNome() + "e causa " + dano + " de dano.");
 				if (alvo.getVida() <= 0) {
@@ -127,7 +127,7 @@ public class Personagem {
 		public void usarMagia(Personagem alvo , String tipoMagia) {
 			if (this.magia > 0) {
 				if (this.nome.equals("Bruxinha Rabuda") && tipoMagia.equalsIgnoreCase("fogo")) { // this.nome.equals quer dizer que o nome do personagem tem que ser igual pra usar natureza fogo 
-					double danoMagico = this.getMagia() * 1;
+					double danoMagico = this.getMagia() * 2;
 					alvo.setVida(alvo.getVida() - danoMagico);
 					System.out.println(this.nome + " lança uma bola de fogo em " + alvo.getNome() + " e causa " + danoMagico + " de dano!");
 					this.setMagia(this.magia - 5); // define o custo da magia 
@@ -135,7 +135,7 @@ public class Personagem {
 						System.out.println(alvo.getNome() + " foi derrotado!");
 					}
 				} else if (this.nome.equals("Cavaleiro Otário") && tipoMagia.equalsIgnoreCase("agua")) {
-					double danoMagico = this.getMagia() * 2;
+					double danoMagico = this.getMagia() * 1.25;
 					alvo.setVida(alvo.getVida() - danoMagico);
 					System.out.println(this.nome + " invoca uma tsunami para " + alvo.getNome() + " e causa " + danoMagico + " de dano!");
 					this.setMagia(this.magia - 3); // define o custo da magia 
@@ -143,7 +143,7 @@ public class Personagem {
 						System.out.println(alvo.getNome() + " foi derrotado!");
 					}
 				} else if (this.nome.equals("Roberto Hood") && tipoMagia.equalsIgnoreCase("terra")) {
-					double danoMagico = this.getMagia() * 3;
+					double danoMagico = this.getMagia() * 1.5;
 					alvo.setVida(alvo.getVida() - danoMagico);
 					System.out.println(this.nome + " ergue espinhos da terra contra " + alvo.getNome() + " e causa " + danoMagico + " de dano!");
 					this.setMagia(this.magia - 4); // define o custo da magia 
