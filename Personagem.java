@@ -91,7 +91,7 @@ public class Personagem {
 	// metodo da ação atacar com condição para nome, dependendo do personagem tem maior dano de ataque
 	public void atacar(Personagem alvo) {
 		if (this.nome.equals("Bruxinha Rabuda")) {					
-			double dano = Math.max( this.ataque *2 , this.ataque - alvo.defesa); //ataque do personagem menos a defesa do inimigo
+			double dano = Math.max( this.ataque  , this.ataque - alvo.defesa); //ataque do personagem menos a defesa do inimigo
 			alvo.setVida(alvo.getVida() - dano);
 			System.out.println(this.nome + " ataca " + alvo.getNome() + " e causa " + dano + " de dano.");
 			if (alvo.getVida() <= 0) {
@@ -105,7 +105,7 @@ public class Personagem {
 					System.out.println(alvo.getNome() + " foi Derrotado");
 					}
 			}else if (this.nome.equals("Roberto Hood")) {					
-				double dano = Math.max( this.ataque *1.5 , this.ataque - alvo.defesa); //ataque do personagem menos a defesa do inimigo
+				double dano = Math.max( this.ataque *2 , this.ataque - alvo.defesa); //ataque do personagem menos a defesa do inimigo
 				alvo.setVida(alvo.getVida() - dano);
 				System.out.println(this.nome + " lança uma sequência de flechas em" + alvo.getNome() + "e causa " + dano + " de dano.");
 				if (alvo.getVida() <= 0) {
