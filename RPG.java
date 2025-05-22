@@ -168,15 +168,8 @@ public class RPG {
 	    	
 	    }
 	    
-	
-        //coisas que faltam fazer
-       
-        //fazer metodos de poções para aumentar o valor dos atributos
         
     }
-
-
-
 
 			
 }
