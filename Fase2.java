@@ -28,6 +28,7 @@ public class Fase2{
 	      System.out.println("\ud83e\uddb8 " + heroi.getNome() + ": Vou te mandar pelo ralo, Barão! Prepare-se para ser filtrado!");
 	      System.out.println("\n\ud83d\udd14 Combate iniciado!");
 	      heroi.restaurarAtributos();
+		//SIMULAÇÃO DE POLIMORFISMO, EXECUTA DIFERENTE PARA CADA TIPO DE HERÓI. pOLIMORFISMO BASEADO EM "DECISÃO PARA O VALOR DO ATRIBUTO 
 	      RPG.combate(heroi, inimigo, scanner); // Chama o método de combate padrão
    }
 }
