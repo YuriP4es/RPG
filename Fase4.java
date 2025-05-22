@@ -38,6 +38,7 @@ public class Fase4 {
 				+ ": Então é aqui que a sua destruição termina, Arkanis. Pela história, pelo futuro!");
 		System.out.println("\n🔔 Combate iniciado!");
 		heroi.restaurarAtributos();
+		//SIMULAÇÃO DE POLIMORFISMO, EXECUTA DIFERENTE PARA CADA TIPO DE HERÓI. pOLIMORFISMO BASEADO EM "DECISÃO PARA O VALOR DO ATRIBUTO 
 		RPG.combate(heroi, inimigo, scanner); // ULTILIZA METODO DE COMBATE DA CLASSE PRINCIPAL
 	}
 
