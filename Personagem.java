@@ -89,6 +89,7 @@ public class Personagem {
 		this.magiaInicial = magiaInicial;
 	}
 	// metodo da ação atacar com condição para nome, dependendo do personagem tem maior dano de ataque
+	// Exemplo de (Polimorfismo de Classe) aplicado manualmente por nome, mesmo sem sobrescrita
 	public void atacar(Personagem alvo) {
 		if (this.nome.equals("Bruxinha Rabuda")) {					
 			double dano = Math.max( this.ataque  , this.ataque - alvo.defesa); //ataque do personagem menos a defesa do inimigo
